@@ -1,18 +1,22 @@
 # Breast Cancer Classification
 
-An educational classification project using the Wisconsin Diagnostic Breast Cancer dataset. It compares Logistic Regression and Random Forest on a stratified holdout set.
+A reproducible baseline comparison on scikit-learn's copy of the Wisconsin Diagnostic Breast Cancer dataset. The notebook treats malignant as the positive class, compares two models with a most-frequent baseline, and reports complementary classification metrics.
 
 ## Method
 
-- Keep the patient identifier out of the feature set.
-- Split the original observations before any resampling.
-- Fit preprocessing on the training split only.
-- Report precision, recall, F1, ROC AUC, and the confusion matrix. Treat results as a learning exercise, not as clinical evidence.
+- Hold out 20% of observations with stratification and a fixed random seed.
+- Keep scaling inside the Logistic Regression pipeline so it learns from training data only.
+- Compare malignant-class precision, recall, and F1 with balanced accuracy, ROC AUC, average precision, and confusion matrices.
+- Use one fixed holdout split. The notebook does not tune hyperparameters, estimate confidence intervals, or calibrate predicted probabilities.
 
-## Data and source
+## Dataset
 
-The repository includes the dataset distributed with the original project. The source is the [Wisconsin Diagnostic Breast Cancer dataset on Kaggle](https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data). Check its current license and attribution requirements before republishing the dataset.
+The notebook loads the dataset with `sklearn.datasets.load_breast_cancer`; it does not redistribute a separate CSV. Scikit-learn documents 569 observations, 30 numeric features, and its source as the [UCI Wisconsin Diagnostic Breast Cancer dataset](https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic). See the [scikit-learn loader documentation](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html) for the returned target labels and dataset details.
 
 ## Run
 
-Open `breast_cancer_prediction.ipynb` from this directory. The notebook expects `data.csv` beside it. Install the notebook's Python imports in your own environment before running it.
+Use Python with pandas, scikit-learn, and Jupyter installed. Open `breast_cancer_prediction.ipynb` and run the cells in order. The dataset comes from the scikit-learn package.
+
+## Limitations
+
+This small educational dataset does not represent a clinical workflow or current patient population. The single holdout scores do not establish generalization, clinical utility, or safety. The project is for learning only and must not guide diagnosis or care.
