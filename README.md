@@ -1,6 +1,6 @@
 # Breast Cancer Classification
 
-A reproducible baseline comparison on scikit-learn's copy of the Wisconsin Diagnostic Breast Cancer dataset. The notebook treats malignant as the positive class, compares two models with a most-frequent baseline, and reports complementary classification metrics.
+Personal learning project, separate from the selection cases. It compares simple classification baselines on scikit-learn's copy of the Wisconsin Diagnostic Breast Cancer dataset. The notebook treats malignant as the positive class and reports complementary classification metrics.
 
 ## Method
 
